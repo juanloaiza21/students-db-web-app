@@ -1,46 +1,19 @@
 import { Injectable } from '@nestjs/common';
 import { Adviser } from './adviser.entity';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
 
 @Injectable()
 export class AdviserService {
-  private date;
-  private advisers: Adviser[];
+  constructor(
+    @InjectRepository(Adviser) private adviserRepository: Repository<Adviser>,
+  ) {}
 
-  constructor() {
-    this.date = new Date().toISOString();
-    this.advisers = [
-      {
-        id: 1,
-        name: 'John',
-        lastName: 'Doe',
-        email: 'email@email.com',
-        createdAt: this.date,
-        updatedAt: this.date,
-      },
-      {
-        id: 2,
-        name: 'John',
-        lastName: 'Doe',
-        email: 'email@email.com',
-        createdAt: this.date,
-        updatedAt: this.date,
-      },
-      {
-        id: 3,
-        name: 'John',
-        lastName: 'Doe',
-        email: 'email@email.com',
-        createdAt: this.date,
-        updatedAt: this.date,
-      },
-    ];
-  }
-
-  findAll() {
-    return this.advisers;
+  async findAll(): Promise<Adviser[]> {
+    return await this.adviserRepository.find();
   }
 
   findOneById(id: number) {
-    return this.advisers.find((adviser) => adviser.id === id);
+    return null;
   }
 }

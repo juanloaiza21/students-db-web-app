@@ -44,3 +44,14 @@ type Query {
   advisers: [Adviser!]!
   getAdviser(id: Float!): Adviser!
 }
+
+type Mutation {
+  createStudent(studentInput: CreateStudentInput!): Student!
+}
+
+input CreateStudentInput {
+  name: String!
+  lastName: String!
+  phoneNumber: String!
+  email: String!
+}
