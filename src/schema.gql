@@ -1,0 +1,46 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Student {
+  id: Int!
+  name: String!
+  lastName: String!
+  phoneNumber: String!
+  email: String!
+  createdAt: String!
+  updatedAt: String!
+}
+
+type Adviser {
+  id: Int!
+  name: String!
+  lastName: String!
+  email: String!
+  createdAt: String!
+  updatedAt: String!
+}
+
+type Bill {
+  id: Int!
+  adviser: Adviser!
+  institucion: String!
+  dateExp: String!
+  dateEnd: String!
+  price: Int!
+  student: Student!
+  type: String!
+  currencyDest: String!
+  currencyPayment: String!
+  createdAt: String!
+  updatedAt: String!
+}
+
+type Query {
+  students: [Student!]!
+  getStudent(id: Float!): Student!
+  bills: [Bill!]!
+  getBill(id: Float!): Bill!
+  advisers: [Adviser!]!
+  getAdviser(id: Float!): Adviser!
+}

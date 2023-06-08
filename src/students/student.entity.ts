@@ -1,5 +1,6 @@
 import { Field, Int, ObjectType } from '@nestjs/graphql';
 
+@ObjectType()
 export class Student {
   @Field((type) => Int)
   id: number;
@@ -11,8 +12,8 @@ export class Student {
   phoneNumber: string;
   @Field()
   email: string;
-  @Field((type) => Date)
-  createdAt: Date;
-  @Field((type) => Date)
-  updatedAt: Date;
+  @Field()
+  createdAt: string;
+  @Field()
+  updatedAt: string;
 }

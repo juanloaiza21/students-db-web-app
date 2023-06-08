@@ -1,28 +1,31 @@
-import { Field, Int } from '@nestjs/graphql';
+import { Field, Int, ObjectType } from '@nestjs/graphql';
+import { Adviser } from 'src/adviser/adviser.entity';
+import { Student } from 'src/students/student.entity';
 
-class Bills {
+@ObjectType()
+export class Bill {
   @Field((type) => Int)
   id: number;
-  @Field((type) => Int)
-  idAsesor: number;
+  @Field((type) => Adviser)
+  adviser: Adviser;
   @Field()
   institucion: string;
-  @Field((type) => Date)
-  dateExp: Date;
-  @Field((type) => Date)
-  dateEnd: Date;
+  @Field()
+  dateExp: string;
+  @Field()
+  dateEnd: string;
   @Field((type) => Int)
   price: number;
-  @Field((type) => Int)
-  idStudent: number;
+  @Field((type) => Student)
+  student: Student;
   @Field()
   type: string;
   @Field()
   currencyDest: string;
   @Field()
   currencyPayment: string;
-  @Field((type) => Date)
-  createdAt: Date;
-  @Field((type) => Date)
-  updatedAt: Date;
+  @Field()
+  createdAt: string;
+  @Field()
+  updatedAt: string;
 }

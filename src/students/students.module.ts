@@ -3,6 +3,6 @@ import { StudentsService } from './students.service';
 import { StudentsResolver } from './students.resolver';
 
 @Module({
-  providers: [StudentsService, StudentsResolver]
+  providers: [StudentsService, StudentsResolver],
 })
 export class StudentsModule {}
